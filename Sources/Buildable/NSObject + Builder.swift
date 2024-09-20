@@ -13,7 +13,7 @@ public protocol Buildable: AnyObject {}
 public extension Buildable {
     
     @discardableResult
-    func set<T>(_ keyPath: ReferenceWritableKeyPath<Self, T>, to value: T) -> Self {
+    func set<T>(_ keyPath: ReferenceWritableKeyPath<Self, T>, with value: T) -> Self {
         self[keyPath: keyPath] = value
         return self
     }
