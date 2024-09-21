@@ -105,7 +105,11 @@ extension SimulatorHandTrackingProvider {
         let sphere = ModelEntity(mesh: .generateSphere(radius: radius))
         sphere.model?.materials = [SimpleMaterial(color: color, isMetallic: false)]
         sphere.position = location
-        sphere.physicsBody = PhysicsBodyComponent(massProperties: .init(mass: 0), material: .generate(friction: 0.5, restitution: 0.1), mode: .dynamic)
+        sphere.physicsBody = PhysicsBodyComponent(
+            massProperties: .init(mass: 0),
+            material: .generate(friction: 0.5, restitution: 0.1),
+            mode: .dynamic
+        )
 
         let collisionShape = ShapeResource.generateSphere(radius: radius)
         let collisionComp = CollisionComponent(shapes: [collisionShape])
@@ -147,8 +151,8 @@ extension SimulatorHandTrackingProvider {
         HandPart.allCases.forEach { handPart in
             let model = makeHandJointSphere(
                 location: .zero,
-                color: handSide == .left ? .white : .clear,
-                radius: 0.03
+                color: handSide == .left ? .white : .red,
+                radius: 0.01
             )
             jointEntities[handPart] = model
 
