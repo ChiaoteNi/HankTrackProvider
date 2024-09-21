@@ -135,6 +135,12 @@ extension SimulatorHandTrackingProvider {
     }
 
     private func updateHandJointEntities(_ handsData: [HandData]) {
+        let isHandsDataEnable = !handsData.isEmpty
+        handJointEntities
+            .values
+            .flatMap { $0.values }
+            .forEach { $0.isEnabled = isHandsDataEnable }
+
         handsData.forEach { handData in
             let handSide = handData.chirality
             let jointEntities = handJointEntities[handSide]
