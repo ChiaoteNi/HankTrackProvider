@@ -10,6 +10,7 @@ import RealityKit
 import HandTrackingModels
 
 protocol HandTrackingProvider: AnyObject {
+    var rootEntity: AnchorEntity? { get set }
     var onHandDataReceived: (([HandData]) -> Void)? { get set }
 
     func startTracking()
@@ -21,11 +22,13 @@ public final class HandTrackingClient: HandTrackingProvider {
 
     let principal: HandTrackingProvider
 
-    public init(rootEntity: AnchorEntity) {
-        self.principal = SimulatorHandTrackingProvider(
-            networkingProvider: BonjourNetworkClient(),
-            rootEntity: rootEntity
-        )
+    var rootEntity: AnchorEntity? {
+        get { principal.rootEntity }
+        set { principal.rootEntity = newValue }
+    }
+
+    public init() {
+        self.principal = SimulatorHandTrackingProvider(networkingProvider: BonjourNetworkClient())
     }
 
     public var onHandDataReceived: (([HandData]) -> Void)? {

@@ -25,22 +25,40 @@ final class SimulatorHandTrackingProvider: HandTrackingProvider {
         }
     }
 
+    var rootEntity: AnchorEntity? {
+        willSet {
+            handJointEntities.values.forEach {
+                $0.values.forEach {
+                    rootEntity?.removeChild($0)
+                    $0.removeFromParent()
+                }
+            }
+        }
+        didSet {
+            guard let rootEntity else { return }
+            handJointEntities.values.forEach {
+                $0.values.forEach {
+                    rootEntity.addChild($0)
+                    $0.setParent(rootEntity)
+                }
+            }
+        }
+    }
+
     private let networkingProvider: NetworkingProvider
 
     private var handDatas: [HandData]?
-    private let rootEntity: AnchorEntity
     private var relocatedHandDatas: [HandData]? {
         guard let handDatas else { return nil }
         return relocateHandDataWithOrigin(
             handDatas,
-            origin: rootEntity.position
+            origin: rootEntity?.position ?? SIMD3<Float>(0, 0.5, -1)
         )
     }
     private var handJointEntities: [HandChirality: [HandPart: ModelEntity]] = [:]
 
-    init(networkingProvider: NetworkingProvider, rootEntity: AnchorEntity) {
+    init(networkingProvider: NetworkingProvider) {
         self.networkingProvider = networkingProvider
-        self.rootEntity = rootEntity
     }
 
     func startTracking() {
@@ -133,7 +151,10 @@ extension SimulatorHandTrackingProvider {
                 radius: 0.03
             )
             jointEntities[handPart] = model
+
+            guard let rootEntity else { return }
             model.setParent(rootEntity)
+            rootEntity.addChild(model)
         }
         return jointEntities
     }
