@@ -22,7 +22,7 @@ public final class HandTrackingClient: HandTrackingProvider {
 
     let principal: HandTrackingProvider
 
-    var rootEntity: AnchorEntity? {
+    public var rootEntity: AnchorEntity? {
         get { principal.rootEntity }
         set { principal.rootEntity = newValue }
     }

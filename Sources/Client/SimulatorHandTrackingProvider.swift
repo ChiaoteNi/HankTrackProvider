@@ -39,9 +39,9 @@ final class SimulatorHandTrackingProvider: HandTrackingProvider {
     private var handDatas: [HandData]?
     private var relocatedHandDatas: [HandData]? {
         guard let handDatas else { return nil }
-        return relocateHandDataWithOrigin(
+        return relocateHandDatasWithOrigin(
             handDatas,
-            origin: rootEntity?.position ?? SIMD3<Float>(0, 0.5, -1)
+            origin: rootEntity?.position ?? SIMD3<Float>(0, 0, -1)
         )
     }
     private var handJointEntities: [HandChirality: [HandPart: ModelEntity]] = [:]
@@ -107,20 +107,24 @@ extension SimulatorHandTrackingProvider {
         return sphere
     }
 
-    private func relocateHandDataWithOrigin(_ handDatas: [HandData], origin: SIMD3<Float>) -> [HandData] {
-        handDatas.map { handData -> HandData in
-            let relocatedJoints = handData.joints.map { joint -> HandJoint in
-                HandJoint(
-                    position: SIMD3(
-                        x: joint.position.x + origin.x,
-                        y: joint.position.y + origin.y,
-                        z: joint.position.z + origin.z
-                    ),
-                    index: joint.index
-                )
-            }
-            return HandData(chirality: handData.chirality, joints: relocatedJoints)
+    private func relocateHandDatasWithOrigin(_ handDatas: [HandData], origin: SIMD3<Float>) -> [HandData] {
+        handDatas.map {
+            relocateHandDataWithOrigin($0, origin: origin)
         }
+    }
+
+    private func relocateHandDataWithOrigin(_ handData: HandData, origin: SIMD3<Float>) -> HandData {
+        let relocatedJoints = handData.joints.map { joint -> HandJoint in
+            HandJoint(
+                position: SIMD3(
+                    x: joint.position.x + origin.x,
+                    y: joint.position.y + origin.y,
+                    z: joint.position.z + origin.z
+                ),
+                index: joint.index
+            )
+        }
+        return HandData(chirality: handData.chirality, joints: relocatedJoints)
     }
 
     private func updateHandJointEntities(_ handsData: [HandData]) {
