@@ -36,7 +36,7 @@ final class SimulatorHandTrackingProvider: HandTrackingProvider {
             origin: rootEntity.position
         )
     }
-    private var handJointEntities: [Chirality: [HandPart: ModelEntity]] = [:]
+    private var handJointEntities: [HandChirality: [HandPart: ModelEntity]] = [:]
 
     init(networkingProvider: NetworkingProvider, rootEntity: AnchorEntity) {
         self.networkingProvider = networkingProvider
@@ -66,7 +66,7 @@ final class SimulatorHandTrackingProvider: HandTrackingProvider {
         networkingProvider.stop()
     }
 
-    func makeHandJointEntities() -> [Chirality: [HandPart: Entity]] {
+    func makeHandJointEntities() -> [HandChirality: [HandPart: Entity]] {
         guard handJointEntities.isEmpty else {
             return handJointEntities
         }
@@ -124,7 +124,7 @@ extension SimulatorHandTrackingProvider {
         }
     }
 
-    private func makeHandJoinEntities(handSide: Chirality, rootEntity: Entity) -> [HandPart: ModelEntity] {
+    private func makeHandJoinEntities(handSide: HandChirality, rootEntity: Entity?) -> [HandPart: ModelEntity] {
         var jointEntities: [HandPart: ModelEntity] = [:]
         HandPart.allCases.forEach { handPart in
             let model = makeHandJointSphere(

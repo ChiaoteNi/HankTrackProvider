@@ -14,7 +14,7 @@ protocol HandTrackingProvider: AnyObject {
 
     func startTracking()
     func stopTracking()
-    func makeHandJointEntities() -> [Chirality: [HandPart: Entity]]
+    func makeHandJointEntities() -> [HandChirality: [HandPart: Entity]]
 }
 
 public final class HandTrackingClient: HandTrackingProvider {
@@ -39,7 +39,7 @@ public final class HandTrackingClient: HandTrackingProvider {
     public func stopTracking() {
         principal.stopTracking()
     }
-    public func makeHandJointEntities() -> [Chirality: [HandPart: Entity]] {
+    public func makeHandJointEntities() -> [HandChirality: [HandPart: Entity]] {
         principal.makeHandJointEntities()
     }
 }

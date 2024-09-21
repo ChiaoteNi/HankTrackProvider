@@ -8,16 +8,16 @@
 import Foundation
 
 public struct HandData: Codable {
-    public var chirality: Chirality
+    public var chirality: HandChirality
     public var joints: [HandJoint]
 
-    public init(chirality: Chirality, joints: [HandJoint]) {
+    public init(chirality: HandChirality, joints: [HandJoint]) {
         self.chirality = chirality
         self.joints = joints
     }
 }
 
-public enum Chirality: Codable {
+public enum HandChirality: Codable {
     case left
     case right
 }
