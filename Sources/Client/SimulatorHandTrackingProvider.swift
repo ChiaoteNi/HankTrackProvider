@@ -26,22 +26,11 @@ final class SimulatorHandTrackingProvider: HandTrackingProvider {
     }
 
     var rootEntity: AnchorEntity? {
-        willSet {
-            handJointEntities.values.forEach {
-                $0.values.forEach {
-                    rootEntity?.removeChild($0)
-                    $0.removeFromParent()
-                }
-            }
-        }
         didSet {
-            guard let rootEntity else { return }
-            handJointEntities.values.forEach {
-                $0.values.forEach {
-                    rootEntity.addChild($0)
-                    $0.setParent(rootEntity)
-                }
-            }
+            handJointEntities
+                .values
+                .flatMap { $0.values }
+                .forEach { $0.setParent(rootEntity, preservingWorldTransform: true) }
         }
     }
 
