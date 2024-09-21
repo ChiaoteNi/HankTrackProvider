@@ -7,7 +7,7 @@
 
 import Foundation
 import RealityKit
-import Models
+import HandTrackingModels
 
 protocol NetworkingProvider: AnyObject {
     var onReceive: ((Data) -> Void)? { get set }

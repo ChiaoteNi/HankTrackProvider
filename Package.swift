@@ -9,18 +9,22 @@ let package = Package(
     products: [
         .library(
             name: "HandTrackingModels",
-            targets: ["Models"]
+            targets: ["HandTrackingModels"]
         ),
         .library(
             name: "HandTrackingClient",
-            targets: ["Client"]
+            targets: ["HandTrackingClient"]
         ),
     ],
     targets: [
-        .target(name: "Models"),
         .target(
-            name: "Client",
-            dependencies: [.target(name: "Models")]
+            name: "HandTrackingModels",
+            path: "Sources/Models"
+        ),
+        .target(
+            name: "HandTrackingClient",
+            dependencies: [.target(name: "HandTrackingModels")],
+            path: "Sources/Client"
         ),
         .target(name: "Buildable"),
     ]
