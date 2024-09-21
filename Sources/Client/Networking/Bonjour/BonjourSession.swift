@@ -341,12 +341,12 @@ extension BonjourSession: MCSessionDelegate {
     public func session(_ session: MCSession,
                         peer peerID: MCPeerID,
                         didChange state: MCSessionState) {
-        #if DEBUG
-        os_log("%{public}@",
-               log: .default,
-               type: .debug,
-               #function)
-        #endif
+//        #if DEBUG
+//        os_log("%{public}@",
+//               log: .default,
+//               type: .debug,
+//               #function)
+//        #endif
         
         guard let peer = self.availablePeers.first(where: { $0.peerID == peerID })
         else { return }
@@ -374,12 +374,12 @@ extension BonjourSession: MCSessionDelegate {
     public func session(_ session: MCSession,
                         didReceive data: Data,
                         fromPeer peerID: MCPeerID) {
-        #if DEBUG
-        os_log("%{public}@",
-               log: .default,
-               type: .debug,
-               #function)
-        #endif
+//        #if DEBUG
+//        os_log("%{public}@",
+//               log: .default,
+//               type: .debug,
+//               #function)
+//        #endif
         self.handleDidReceived(data, peerID: peerID)
     }
 
@@ -387,12 +387,12 @@ extension BonjourSession: MCSessionDelegate {
                         didReceive stream: InputStream,
                         withName streamName: String,
                         fromPeer peerID: MCPeerID) {
-        #if DEBUG
-        os_log("%{public}@",
-               log: .default,
-               type: .debug,
-               #function)
-        #endif
+//        #if DEBUG
+//        os_log("%{public}@",
+//               log: .default,
+//               type: .debug,
+//               #function)
+//        #endif
     }
 
     public func session(_ session: MCSession,
@@ -402,12 +402,12 @@ extension BonjourSession: MCSessionDelegate {
         self.handleDidStartReceiving(resourceName: resourceName,
                                      from: peerID,
                                      progress: progress)
-        #if DEBUG
-        os_log("%{public}@",
-               log: .default,
-               type: .debug,
-               #function)
-        #endif
+//        #if DEBUG
+//        os_log("%{public}@",
+//               log: .default,
+//               type: .debug,
+//               #function)
+//        #endif
     }
 
     public func session(_ session: MCSession,
@@ -419,12 +419,12 @@ extension BonjourSession: MCSessionDelegate {
                                       from: peerID,
                                       at: localURL,
                                       withError: error)
-        #if DEBUG
-        os_log("%{public}@",
-               log: .default,
-               type: .debug,
-               #function)
-        #endif
+//        #if DEBUG
+//        os_log("%{public}@",
+//               log: .default,
+//               type: .debug,
+//               #function)
+//        #endif
     }
     
     public func session(_ session: MCSession,
@@ -434,12 +434,12 @@ extension BonjourSession: MCSessionDelegate {
         self.configuration.security.certificateHandler(certificate,
                                                        peerID,
                                                        certificateHandler)
-        #if DEBUG
-        os_log("%{public}@",
-               log: .default,
-               type: .debug,
-               #function)
-        #endif
+//        #if DEBUG
+//        os_log("%{public}@",
+//               log: .default,
+//               type: .debug,
+//               #function)
+//        #endif
     }
 
 }
@@ -451,12 +451,12 @@ extension BonjourSession: MCNearbyServiceBrowserDelegate {
     public func browser(_ browser: MCNearbyServiceBrowser,
                         foundPeer peerID: MCPeerID,
                         withDiscoveryInfo info: [String : String]?) {
-        #if DEBUG
-        os_log("%{public}@",
-               log: .default,
-               type: .debug,
-               #function)
-        #endif
+//        #if DEBUG
+//        os_log("%{public}@",
+//               log: .default,
+//               type: .debug,
+//               #function)
+//        #endif
 
         do {
             let peer = try Peer(peer: peerID, discoveryInfo: info)
