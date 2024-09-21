@@ -10,25 +10,22 @@ import RealityKit
 import HandTrackingModels
 
 protocol HandTrackingProvider: AnyObject {
-    var rootEntity: AnchorEntity? { get set }
     var onHandDataReceived: (([HandData]) -> Void)? { get set }
 
     func startTracking()
     func stopTracking()
-    func makeHandJointEntities() -> [HandChirality: [HandPart: Entity]]
+    func makeHandJointEntities(rootEntity: AnchorEntity) -> [HandChirality: [HandPart: Entity]]
 }
 
 public final class HandTrackingClient: HandTrackingProvider {
 
     let principal: HandTrackingProvider
 
-    public var rootEntity: AnchorEntity? {
-        get { principal.rootEntity }
-        set { principal.rootEntity = newValue }
-    }
-
     public init() {
-        self.principal = SimulatorHandTrackingProvider(networkingProvider: BonjourNetworkClient())
+        self.principal = SimulatorHandTrackingProvider(
+            networkingProvider: BonjourNetworkClient(),
+            devicePositionProvider: ARKitDevicePositionProvider()
+        )
     }
 
     public var onHandDataReceived: (([HandData]) -> Void)? {
@@ -42,7 +39,7 @@ public final class HandTrackingClient: HandTrackingProvider {
     public func stopTracking() {
         principal.stopTracking()
     }
-    public func makeHandJointEntities() -> [HandChirality: [HandPart: Entity]] {
-        principal.makeHandJointEntities()
+    public func makeHandJointEntities(rootEntity: AnchorEntity) -> [HandChirality: [HandPart: Entity]] {
+        principal.makeHandJointEntities(rootEntity: rootEntity)
     }
 }

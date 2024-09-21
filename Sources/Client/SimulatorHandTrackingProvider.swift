@@ -16,6 +16,10 @@ protocol NetworkingProvider: AnyObject {
     func stop()
 }
 
+protocol DevicePositionProvider: AnyObject {
+    func retrieveCurrentPosition() -> SIMD3<Float>?
+}
+
 final class SimulatorHandTrackingProvider: HandTrackingProvider {
 
     var onHandDataReceived: (([HandData]) -> Void)? {
@@ -25,29 +29,23 @@ final class SimulatorHandTrackingProvider: HandTrackingProvider {
         }
     }
 
-    var rootEntity: AnchorEntity? {
-        didSet {
-            handJointEntities
-                .values
-                .flatMap { $0.values }
-                .forEach { $0.setParent(rootEntity, preservingWorldTransform: true) }
-        }
-    }
-
     private let networkingProvider: NetworkingProvider
+    private let devicePositionProvider: DevicePositionProvider
+
+    private var devicePosition: SIMD3<Float> {
+        devicePositionProvider.retrieveCurrentPosition() ?? SIMD3<Float>(0, 0, -1)
+    }
 
     private var handDatas: [HandData]?
     private var relocatedHandDatas: [HandData]? {
         guard let handDatas else { return nil }
-        return relocateHandDatasWithOrigin(
-            handDatas,
-            origin: rootEntity?.position ?? SIMD3<Float>(0, 0, -1)
-        )
+        return relocateHandDatasWithOrigin(handDatas, origin: devicePosition)
     }
     private var handJointEntities: [HandChirality: [HandPart: ModelEntity]] = [:]
 
-    init(networkingProvider: NetworkingProvider) {
+    init(networkingProvider: NetworkingProvider, devicePositionProvider: DevicePositionProvider) {
         self.networkingProvider = networkingProvider
+        self.devicePositionProvider = devicePositionProvider
     }
 
     func startTracking() {
@@ -58,7 +56,9 @@ final class SimulatorHandTrackingProvider: HandTrackingProvider {
                 let handDatas = try JSONDecoder().decode([HandData].self, from: data)
                 self.handDatas = handDatas
                 if !handJointEntities.isEmpty {
-                    self.updateHandJointEntities(handDatas)
+                    Task {
+                        await self.updateHandJointEntities(handDatas)
+                    }
                 }
                 if let onHandDataReceived, let relocatedHandDatas {
                     onHandDataReceived(relocatedHandDatas)
@@ -73,7 +73,7 @@ final class SimulatorHandTrackingProvider: HandTrackingProvider {
         networkingProvider.stop()
     }
 
-    func makeHandJointEntities() -> [HandChirality: [HandPart: Entity]] {
+    func makeHandJointEntities(rootEntity: AnchorEntity) -> [HandChirality: [HandPart: Entity]] {
         guard handJointEntities.isEmpty else {
             return handJointEntities
         }
@@ -117,9 +117,9 @@ extension SimulatorHandTrackingProvider {
         let relocatedJoints = handData.joints.map { joint -> HandJoint in
             HandJoint(
                 position: SIMD3(
-                    x: joint.position.x + origin.x,
-                    y: joint.position.y + origin.y,
-                    z: joint.position.z + origin.z
+                    x: origin.x - joint.position.x + 0.5,
+                    y: origin.y + joint.position.y - 0.5,
+                    z: origin.z + joint.position.z - 1
                 ),
                 index: joint.index
             )
@@ -127,6 +127,7 @@ extension SimulatorHandTrackingProvider {
         return HandData(chirality: handData.chirality, joints: relocatedJoints)
     }
 
+    @MainActor
     private func updateHandJointEntities(_ handsData: [HandData]) {
         let isHandsDataEnable = !handsData.isEmpty
         handJointEntities
@@ -134,7 +135,9 @@ extension SimulatorHandTrackingProvider {
             .flatMap { $0.values }
             .forEach { $0.isEnabled = isHandsDataEnable }
 
-        handsData.forEach { handData in
+        let devicePosition = devicePosition
+        handsData.forEach {
+            let handData = relocateHandDataWithOrigin($0, origin: devicePosition)
             let handSide = handData.chirality
             let jointEntities = handJointEntities[handSide]
             handData.joints.forEach { joint in
@@ -145,18 +148,15 @@ extension SimulatorHandTrackingProvider {
         }
     }
 
-    private func makeHandJoinEntities(handSide: HandChirality, rootEntity: Entity?) -> [HandPart: ModelEntity] {
+    private func makeHandJoinEntities(handSide: HandChirality, rootEntity: Entity) -> [HandPart: ModelEntity] {
         var jointEntities: [HandPart: ModelEntity] = [:]
         HandPart.allCases.forEach { handPart in
             let model = makeHandJointSphere(
                 location: .zero,
                 color: handSide == .left ? .white : .red,
-                radius: 0.01
+                radius: handPart == .handWrist ? 0.05 : 0.01
             )
             jointEntities[handPart] = model
-
-            guard let rootEntity else { return }
-            model.setParent(rootEntity)
             rootEntity.addChild(model)
         }
         return jointEntities
