@@ -7,6 +7,7 @@
 
 import Foundation
 import ARKit
+import RealityKit
 
 final class ARKitDevicePositionProvider: DevicePositionProvider {
     private let session = ARKitSession()

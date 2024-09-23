@@ -36,32 +36,32 @@ public struct HandJoint: Codable {
 }
 
 public enum HandPart: Int, CaseIterable {
-    case handWrist
-    case handThumbKnuckle
-    case handThumbIntermediateBase
-    case handThumbIntermediateTip
-    case handThumbTip
-    case handIndexFingerMetacarpal
-    case handIndexFingerKnuckle
-    case handIndexFingerIntermediateBase
-    case handIndexFingerIntermediateTip
-    case handIndexFingerTip
-    case handMiddleFingerMetacarpal
-    case handMiddleFingerKnuckle
-    case handMiddleFingerIntermediateBase
-    case handMiddleFingerIntermediateTip
-    case handMiddleFingerTip
-    case handRingFingerMetacarpal
-    case handRingFingerKnuckle
-    case handRingFingerIntermediateBase
-    case handRingFingerIntermediateTip
-    case handRingFingerTip
-    case handLittleFingerMetacarpal
-    case handLittleFingerKnuckle
-    case handLittleFingerIntermediateBase
-    case handLittleFingerIntermediateTip
-    case handLittleFingerTip
-    case handForearmWrist
-    case handForearmArm
+    case wrist
+    case thumbKnuckle
+    case thumbIntermediateBase
+    case thumbIntermediateTip
+    case thumbTip
+    case indexFingerMetacarpal
+    case indexFingerKnuckle
+    case indexFingerIntermediateBase
+    case indexFingerIntermediateTip
+    case indexFingerTip
+    case middleFingerMetacarpal
+    case middleFingerKnuckle
+    case middleFingerIntermediateBase
+    case middleFingerIntermediateTip
+    case middleFingerTip
+    case ringFingerMetacarpal
+    case ringFingerKnuckle
+    case ringFingerIntermediateBase
+    case ringFingerIntermediateTip
+    case ringFingerTip
+    case littleFingerMetacarpal
+    case littleFingerKnuckle
+    case littleFingerIntermediateBase
+    case littleFingerIntermediateTip
+    case littleFingerTip
+    case forearmWrist
+    case forearmArm
     case unknown = -1
 }

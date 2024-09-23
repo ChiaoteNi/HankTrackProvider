@@ -5,7 +5,6 @@ import PackageDescription
 
 let package = Package(
     name: "HandTrackingClient",
-    platforms: [.iOS(.v14)],
     products: [
         .library(
             name: "HandTrackingModels",
@@ -15,15 +14,26 @@ let package = Package(
             name: "HandTrackingClient",
             targets: ["HandTrackingClient"]
         ),
+        .library(
+            name: "HandTrackingNetworking",
+            targets: ["HandTrackingNetworking"]
+        ),
     ],
     targets: [
+        .target(
+            name: "HandTrackingNetworking",
+            path: "Sources/Networking"
+        ),
         .target(
             name: "HandTrackingModels",
             path: "Sources/Models"
         ),
         .target(
             name: "HandTrackingClient",
-            dependencies: [.target(name: "HandTrackingModels")],
+            dependencies: [
+                .target(name: "HandTrackingModels"),
+                .target(name: "HandTrackingNetworking")
+            ],
             path: "Sources/Client"
         ),
         .target(name: "Buildable"),

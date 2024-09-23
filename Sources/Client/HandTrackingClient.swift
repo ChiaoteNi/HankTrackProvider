@@ -8,14 +8,17 @@
 import Foundation
 import RealityKit
 import HandTrackingModels
+import HandTrackingNetworking
 
 protocol HandTrackingProvider: AnyObject {
     var onHandDataReceived: (([HandData]) -> Void)? { get set }
 
     func startTracking()
     func stopTracking()
-    func makeHandJointEntities(rootEntity: AnchorEntity) -> [HandChirality: [HandPart: Entity]]
+    func makeHandJointEntities() -> [HandChirality: [HandPart: Entity]]
 }
+
+extension BonjourNetworkClient: NetworkingProvider {}
 
 public final class HandTrackingClient: HandTrackingProvider {
 
@@ -39,7 +42,7 @@ public final class HandTrackingClient: HandTrackingProvider {
     public func stopTracking() {
         principal.stopTracking()
     }
-    public func makeHandJointEntities(rootEntity: AnchorEntity) -> [HandChirality: [HandPart: Entity]] {
-        principal.makeHandJointEntities(rootEntity: rootEntity)
+    public func makeHandJointEntities() -> [HandChirality: [HandPart: Entity]] {
+        principal.makeHandJointEntities()
     }
 }
