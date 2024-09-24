@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93750D902CA2370700CF1B0A /* HandTrackingModels in Frameworks */ = {isa = PBXBuildFile; productRef = 93750D8F2CA2370700CF1B0A /* HandTrackingModels */; };
+		93750D922CA2370700CF1B0A /* HandTrackingNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 93750D912CA2370700CF1B0A /* HandTrackingNetworking */; };
+		93750D952CA2550600CF1B0A /* HandTrackingModels in Frameworks */ = {isa = PBXBuildFile; productRef = 93750D942CA2550600CF1B0A /* HandTrackingModels */; };
+		93750D972CA2550600CF1B0A /* HandTrackingNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 93750D962CA2550600CF1B0A /* HandTrackingNetworking */; };
+		93DB0DC62CA2E37D00ACD671 /* HandTrackingModels in Frameworks */ = {isa = PBXBuildFile; productRef = 93DB0DC52CA2E37D00ACD671 /* HandTrackingModels */; };
+		93DB0DC82CA2E37D00ACD671 /* HandTrackingNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 93DB0DC72CA2E37D00ACD671 /* HandTrackingNetworking */; };
+		93DB0E062CA2F6C400ACD671 /* HandTrackingClient in Frameworks */ = {isa = PBXBuildFile; productRef = 93DB0E052CA2F6C400ACD671 /* HandTrackingClient */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		93750D132CA2145C00CF1B0A /* HandTrackCapture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandTrackCapture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		93750D152CA2145C00CF1B0A /* HandTrackCapture */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HandTrackCapture;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93750D102CA2145C00CF1B0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93750D972CA2550600CF1B0A /* HandTrackingNetworking in Frameworks */,
+				93750D922CA2370700CF1B0A /* HandTrackingNetworking in Frameworks */,
+				93DB0DC82CA2E37D00ACD671 /* HandTrackingNetworking in Frameworks */,
+				93750D902CA2370700CF1B0A /* HandTrackingModels in Frameworks */,
+				93750D952CA2550600CF1B0A /* HandTrackingModels in Frameworks */,
+				93DB0E062CA2F6C400ACD671 /* HandTrackingClient in Frameworks */,
+				93DB0DC62CA2E37D00ACD671 /* HandTrackingModels in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93750D0A2CA2145C00CF1B0A = {
+			isa = PBXGroup;
+			children = (
+				93750D152CA2145C00CF1B0A /* HandTrackCapture */,
+				93750D142CA2145C00CF1B0A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93750D142CA2145C00CF1B0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93750D132CA2145C00CF1B0A /* HandTrackCapture.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93750D122CA2145C00CF1B0A /* HandTrackCapture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93750D212CA2145E00CF1B0A /* Build configuration list for PBXNativeTarget "HandTrackCapture" */;
+			buildPhases = (
+				93750D0F2CA2145C00CF1B0A /* Sources */,
+				93750D102CA2145C00CF1B0A /* Frameworks */,
+				93750D112CA2145C00CF1B0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				93750D152CA2145C00CF1B0A /* HandTrackCapture */,
+			);
+			name = HandTrackCapture;
+			packageProductDependencies = (
+				93750D8F2CA2370700CF1B0A /* HandTrackingModels */,
+				93750D912CA2370700CF1B0A /* HandTrackingNetworking */,
+				93750D942CA2550600CF1B0A /* HandTrackingModels */,
+				93750D962CA2550600CF1B0A /* HandTrackingNetworking */,
+				93DB0DC52CA2E37D00ACD671 /* HandTrackingModels */,
+				93DB0DC72CA2E37D00ACD671 /* HandTrackingNetworking */,
+				93DB0E052CA2F6C400ACD671 /* HandTrackingClient */,
+			);
+			productName = HandTrackCapture;
+			productReference = 93750D132CA2145C00CF1B0A /* HandTrackCapture.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93750D0B2CA2145C00CF1B0A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					93750D122CA2145C00CF1B0A = {
+						CreatedOnToolsVersion = 16.1;
+					};
+				};
+			};
+			buildConfigurationList = 93750D0E2CA2145C00CF1B0A /* Build configuration list for PBXProject "HandTrackCapture" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 93750D0A2CA2145C00CF1B0A;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				93DB0DC42CA2E37D00ACD671 /* XCRemoteSwiftPackageReference "HankTrackProvider" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 93750D142CA2145C00CF1B0A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93750D122CA2145C00CF1B0A /* HandTrackCapture */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93750D112CA2145C00CF1B0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93750D0F2CA2145C00CF1B0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		93750D1F2CA2145E00CF1B0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		93750D202CA2145E00CF1B0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93750D222CA2145E00CF1B0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HandTrackCapture/Preview Content\"";
+				DEVELOPMENT_TEAM = 7Y4TPNE48W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app wanna use your camera to capture your hand gesture";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSTaipei.HandTrackCapture;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = NO;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		93750D232CA2145E00CF1B0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HandTrackCapture/Preview Content\"";
+				DEVELOPMENT_TEAM = 7Y4TPNE48W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app wanna use your camera to capture your hand gesture";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSTaipei.HandTrackCapture;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = NO;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93750D0E2CA2145C00CF1B0A /* Build configuration list for PBXProject "HandTrackCapture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93750D1F2CA2145E00CF1B0A /* Debug */,
+				93750D202CA2145E00CF1B0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93750D212CA2145E00CF1B0A /* Build configuration list for PBXNativeTarget "HandTrackCapture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93750D222CA2145E00CF1B0A /* Debug */,
+				93750D232CA2145E00CF1B0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		93DB0DC42CA2E37D00ACD671 /* XCRemoteSwiftPackageReference "HankTrackProvider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChiaoteNi/HankTrackProvider.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		93750D8F2CA2370700CF1B0A /* HandTrackingModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HandTrackingModels;
+		};
+		93750D912CA2370700CF1B0A /* HandTrackingNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HandTrackingNetworking;
+		};
+		93750D942CA2550600CF1B0A /* HandTrackingModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HandTrackingModels;
+		};
+		93750D962CA2550600CF1B0A /* HandTrackingNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HandTrackingNetworking;
+		};
+		93DB0DC52CA2E37D00ACD671 /* HandTrackingModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93DB0DC42CA2E37D00ACD671 /* XCRemoteSwiftPackageReference "HankTrackProvider" */;
+			productName = HandTrackingModels;
+		};
+		93DB0DC72CA2E37D00ACD671 /* HandTrackingNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93DB0DC42CA2E37D00ACD671 /* XCRemoteSwiftPackageReference "HankTrackProvider" */;
+			productName = HandTrackingNetworking;
+		};
+		93DB0E052CA2F6C400ACD671 /* HandTrackingClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93DB0DC42CA2E37D00ACD671 /* XCRemoteSwiftPackageReference "HankTrackProvider" */;
+			productName = HandTrackingClient;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 93750D0B2CA2145C00CF1B0A /* Project object */;
+}
