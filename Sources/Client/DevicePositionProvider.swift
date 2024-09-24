@@ -5,11 +5,11 @@
 //  Created by Chiaote Ni on 2024/9/21.
 //
 
+#if os(visionOS)
 import Foundation
 import ARKit
 import RealityKit
 
-#if os(visionOS)
 final class ARKitDevicePositionProvider: DevicePositionProvider {
     private let session = ARKitSession()
     private let worldTracking = WorldTrackingProvider()
